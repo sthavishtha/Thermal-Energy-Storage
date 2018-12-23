@@ -1,0 +1,18 @@
+set term postscript eps color enhanced "Times-Roman" 25
+
+set output "ovs_solid_part3_2.eps" 
+#set xrange[-:-5.8] 
+set yrange [1.85:2.15]
+set mxtics 10
+set mytics 10
+
+set xlabel "logh
+set ylabel "{/Symbol D}logE/{/Symbol D}logh"
+
+plot "error_ovs_solid_part3.txt" using (log($1)):6  with linespoints lw 3 lc "green" title "L1 - error" ,\
+	"error_ovs_solid_part3.txt" using (log($1)):7 with linespoints lw 3 lc "black" title "L2 - error" ,\
+	"error_ovs_solid_part3.txt" using (log($1)):8 with linespoints lw 3 lc "red" title "L-inf - error" 
+
+set output
+
+pause -1 "hit any key to continue"

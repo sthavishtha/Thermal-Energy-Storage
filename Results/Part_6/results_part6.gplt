@@ -1,0 +1,20 @@
+set term postscript eps color enhanced "Times-Roman" 25
+
+set output "results_part6.eps" 
+#set xrange[-:-5.8] 
+#set yrange [-5.5:-1.0]
+set mxtics 10
+set mytics 10
+
+set xlabel "logh"
+set ylabel "/Symbol T"
+
+plot "grid_refinement_part6_d4.dat" using (log($1)):2 with linespoints lw 3 lc "green" title "Storage Diameter = 4m" ,\
+"grid_refinement_part6_d5.dat" using (log($1)):2 with linespoints lw 3 lc "black" title "Storage Diameter = 5m" ,\
+"grid_refinement_part6_d6.dat" using (log($1)):2 with linespoints lw 3 lc "red" title "Storage Diameter = 6m" ,\
+"grid_refinement_part6_d7.dat" using (log($1)):2 with linespoints lw 3 lc "blue" title "Storage Diameter = 7m" ,\
+"grid_refinement_part6_d8.dat" using (log($1)):2 with linespoints lw 3 lc "magenta" title "Storage Diameter = 8m" 
+
+set output
+
+pause -1 "hit any key to continue"

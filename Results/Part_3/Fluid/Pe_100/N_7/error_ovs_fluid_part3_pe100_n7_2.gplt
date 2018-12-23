@@ -1,0 +1,18 @@
+set term postscript eps color enhanced "Times-Roman" 25
+
+set output "error_ovs_fluid_part3_pe100_n7_2.eps" 
+#set xrange[-:-5.8] 
+set yrange [0.75:1.25]
+set mxtics 10
+set mytics 10
+
+set xlabel "logh"
+set ylabel "{/Symbol D}logE/{/Symbol D}logh"
+
+plot "error_ovs_fluid_part3_pe100_n7.txt" using (log($1)):5  with linespoints lw 2 lc "green" title "L1 - error" ,\
+	"error_ovs_fluid_part3_pe100_n7.txt" using (log($1)):6 with linespoints lw 2 lc "black" title "L2 - error" ,\
+	"error_ovs_fluid_part3_pe100_n7.txt" using (log($1)):7 with linespoints lw 2 lc "red" title "L-inf - error" 
+
+set output
+
+pause -1 "hit any key to continue"
